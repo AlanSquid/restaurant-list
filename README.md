@@ -21,7 +21,7 @@
 4. 執行:
   `npm run start`
 5. 執行成功終端會顯示: Express is listening on http://localhost:3000 
-6. 欲結束執行可在終端輸入`ctrl + C`
+6. 欲結束執行可在終端輸入`ctrl + C
 
 ## 開發工具
 - Node.js v16.17.0
