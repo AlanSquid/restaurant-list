@@ -14,7 +14,7 @@ app.use(express.static('public'))
 
 // routes setting
 app.get('/', (req, res) => {
-  res.render('index', { restaurants: restaurantList })
+  res.render('index', { restaurantList })
 })
 
 app.get('/restaurants/:id', (req, res) => {
@@ -30,7 +30,7 @@ app.get('/search', (req, res) => {
       restaurant.category.includes(keyword)
   })
 
-  res.render('index', { restaurants: filteredRestaurants })
+  res.render('index', { restaurantList: filteredRestaurants })
 })
 
 // start and listen on the Express server
