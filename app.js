@@ -3,7 +3,7 @@ const app = express()
 const mongoose = require('mongoose')
 const port = 3000
 const exphbs = require('express-handlebars')
-// const restaurantList = require('./restaurant.json').results
+
 const Restaurant = require('./models/restaurant.js')
 
 mongoose.connect(process.env.MONGODB_RESTAURANT_URI)
@@ -33,8 +33,11 @@ app.get('/', (req, res) => {
 })
 
 app.get('/restaurants/:id', (req, res) => {
-  const restaurant = restaurantList.find(restaurant => restaurant.id.toString() === req.params.id)
-  res.render('show', restaurant)
+  const id = req.params.id
+  Restaurant.findById(id)
+    .lean()
+    .then(restaurant => res.render('show', { restaurant }))
+    .catch(error => console.error(error))
 })
 
 app.get('/search', (req, res) => {
