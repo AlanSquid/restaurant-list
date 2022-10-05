@@ -23,7 +23,7 @@
       <div class="card-columns">
         {{#each restaurants}}
         <a href="/restaurants/{{this._id}}" class="text-secondary">
-          <div class="card mb-3">
+          <div class="card mb-1">
             <img class="card-img-top" src="{{this.image}}" alt="{{this.name}}">
             <div class="card-body p-3">
               <h6 class="card-title mb-1">{{this.name}}</h6>
@@ -40,8 +40,16 @@
 
             </div>
           </div>
-        </a>
-        {{/each}}
+
+          <div class="panel d-flex justify-content-end mb-5">
+            <a class="mr-4" href="/restraurants/id/edit">Edit</a>
+            <a class="mr-4" href="/restraurants/id/">Detail</a>
+            <form action="/restraurants/id/delet" method="POST">
+              <button type="submit">Delete</button>
+            </form>
+          </div>
+
+          {{/each}}
       </div>
     </div>
   </div>
