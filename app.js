@@ -42,13 +42,17 @@ app.get('/restaurants/:id', (req, res) => {
 
 app.get('/search', (req, res) => {
   const keyword = req.query.keyword.trim()
-  const filteredRestaurants = restaurantList.filter(restaurant => {
-    return restaurant.name.includes(keyword) ||
-      restaurant.name_en.toLowerCase().includes(keyword.toLowerCase()) ||
-      restaurant.category.includes(keyword)
-  })
-
-  res.render('index', { restaurantList: filteredRestaurants })
+  Restaurant.find()
+    .lean()
+    .then(restaurants => {
+      const filteredRestaurants = restaurants.filter(restaurant => {
+        return restaurant.name.includes(keyword) ||
+          restaurant.name_en.toLowerCase().includes(keyword.toLowerCase()) ||
+          restaurant.category.includes(keyword)
+      })
+      res.render('index', { restaurants: filteredRestaurants })
+    })
+    .catch(error => console.error(error))
 })
 
 // start and listen on the Express server
