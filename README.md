@@ -31,6 +31,8 @@
 - Express 4.16.4
 - express-handlebars 3.0.0
 - Bootstrap 4.6x
+- method-override ^3.0.0
+- mongoose ^6.6.5
 
   
 

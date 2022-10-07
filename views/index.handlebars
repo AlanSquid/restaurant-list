@@ -16,6 +16,21 @@
   </div>
 </div>
 
+<div class="change-sort-outer d-flex justify-content-end">
+  <div class="change-sort d-flex flex-column">
+    <form action="/">
+      <label for="sort">排序：</label>
+      <select class="sort" name="sort" id="sort" onchange="this.form.submit()">
+        <option value="a-z">A-Z</option>
+        <option value="z-a">Z-A</option>
+        <option value="category">類別</option>
+        <option value="location">地區</option>
+      </select>
+    </form>
+  </div>
+</div>
+
+
 <!-- restaurant list -->
 <div class="container mt-5">
   <div class="row col-10 mx-auto">
@@ -32,7 +47,7 @@
               {{this.category}}
             </div>
 
-            <span class="badge badge-pill badge-danger font-weight-normal">
+            <span class="badge rounded-pill text-bg-danger font-weight-normal">
               {{this.rating}}
               <i class="fas fa-star fa-xs"></i>
             </span>
@@ -41,10 +56,10 @@
         </div>
       </a>
       <div class="panel d-flex justify-content-end mb-5">
-        <a class="mr-4" href="/restaurants/{{this._id}}/edit">Edit</a>
-        <a class="mr-4" href="/restaurants/{{this._id}}">Detail</a>
+        <a class="me-4" href="/restaurants/{{this._id}}/edit">Edit</a>
+        <a class="me-4" href="/restaurants/{{this._id}}">Detail</a>
         <form action="/restaurants/{{this._id}}?_method=DELETE" method="POST">
-          <button type="submit" class="btn-danger">Delete</button>
+          <button type="submit" class="btn btn-danger btn-sm">Delete</button>
         </form>
       </div>
     </div>
