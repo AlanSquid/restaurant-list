@@ -6,7 +6,7 @@ const Restaurant = require('../../models/restaurant')
 router.get('/', (req, res) => {
   let sort = req.query.sort
   const home = true
-  Restaurant.find()
+  Restaurant.find({})
     .lean()
     .sort(sortSelector(sort))
     .then(restaurants => res.render('index', { restaurants, home }))
@@ -15,7 +15,7 @@ router.get('/', (req, res) => {
 
 router.get('/search', (req, res) => {
   const keyword = req.query.keyword.trim()
-  Restaurant.find()
+  Restaurant.find({})
     .lean()
     .then(restaurants => {
       const filteredRestaurants = restaurants.filter(restaurant => {
