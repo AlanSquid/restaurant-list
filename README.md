@@ -7,6 +7,7 @@
 - 瀏覽清單
 - 修改清單
 - 刪除清單
+- 排序清單
 
 ### Screen Photos
 #### 首頁
@@ -30,7 +31,7 @@
 - Node.js v16.17.0
 - Express 4.16.4
 - express-handlebars 3.0.0
-- Bootstrap 4.6x
+- Bootstrap 5.2
 - method-override ^3.0.0
 - mongoose ^6.6.5
 

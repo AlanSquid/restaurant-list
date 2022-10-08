@@ -15,21 +15,21 @@
     </div>
   </div>
 </div>
-
+{{#if home}}
 <div class="change-sort-outer d-flex justify-content-end">
-  <div class="change-sort d-flex flex-column">
+  <div class="change-sort">
     <form action="/">
-      <label for="sort">排序：</label>
-      <select class="sort" name="sort" id="sort" onchange="this.form.submit()">
-        <option value="a-z">A-Z</option>
-        <option value="z-a">Z-A</option>
+      <select class="sort" name="sort" id="sort" oninput="this.form.submit()">
+        <option selected="default">排序</option>
+        <option value="a-z">A -> Z</option>
+        <option value="z-a">Z -> A</option>
         <option value="category">類別</option>
         <option value="location">地區</option>
       </select>
     </form>
   </div>
 </div>
-
+{{/if}}
 
 <!-- restaurant list -->
 <div class="container mt-5">

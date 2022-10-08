@@ -8,6 +8,9 @@ router.get('/new', (req, res) => {
 })
 
 router.post('/', (req, res) => {
+  if (!req.body.image) {
+    req.body.image = 'https://cdn.w600.comps.canstockphoto.com.tw/%E9%A3%9F%E7%89%A9-%E9%9B%86%E5%90%88-%E5%9C%96%E8%B1%A1-%E5%9C%96%E7%A4%BA_csp5949819.jpg'
+  }
   Restaurant.create(req.body)
     .then(() => res.redirect('/'))
     .catch(error => console.error(error))
@@ -32,6 +35,9 @@ router.get('/:id/edit', (req, res) => {
 
 router.put('/:id', (req, res) => {
   const id = req.params.id
+  if (!req.body.image) {
+    req.body.image = 'https://cdn.w600.comps.canstockphoto.com.tw/%E9%A3%9F%E7%89%A9-%E9%9B%86%E5%90%88-%E5%9C%96%E8%B1%A1-%E5%9C%96%E7%A4%BA_csp5949819.jpg'
+  }
   Restaurant.findByIdAndUpdate(id, req.body)
     .then(() => res.redirect('/'))
     .catch(error => console.error(error))
@@ -45,19 +51,5 @@ router.delete('/:id', (req, res) => {
     .catch(error => console.error(error))
 })
 
-router.get('/search', (req, res) => {
-  const keyword = req.query.keyword.trim()
-  Restaurant.find()
-    .lean()
-    .then(restaurants => {
-      const filteredRestaurants = restaurants.filter(restaurant => {
-        return restaurant.name.includes(keyword) ||
-          restaurant.name_en.toLowerCase().includes(keyword.toLowerCase()) ||
-          restaurant.category.includes(keyword)
-      })
-      res.render('index', { restaurants: filteredRestaurants })
-    })
-    .catch(error => console.error(error))
-})
 
 module.exports = router
