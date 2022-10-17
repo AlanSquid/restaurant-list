@@ -4,12 +4,20 @@ const sortSelector = require('../../utility/sortSelector')
 const Restaurant = require('../../models/restaurant')
 
 router.get('/', (req, res) => {
-  let sort = req.query.sort
+  const sort = req.query.sort
+
   const home = true
   Restaurant.find()
     .lean()
     .sort(sortSelector(sort))
-    .then(restaurants => res.render('index', { restaurants, home }))
+    .then(restaurants => res.render('index', {
+      restaurants,
+      home,
+      option1: sort === 'a-z',
+      option2: sort === 'z-a',
+      option3: sort === 'category',
+      option4: sort === 'location',
+    }))
     .catch(error => console.error(error))
 })
 

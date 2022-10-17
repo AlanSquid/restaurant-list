@@ -19,12 +19,11 @@
 <div class="change-sort-outer d-flex justify-content-end">
   <div class="change-sort">
     <form action="/">
-      <select class="sort" name="sort" id="sort" oninput="this.form.submit()">
-        <option selected="default">排序</option>
-        <option value="a-z">A -> Z</option>
-        <option value="z-a">Z -> A</option>
-        <option value="category">類別</option>
-        <option value="location">地區</option>
+      <select class="sort" name="sort" id="sort" onchange="this.form.submit()">
+        <option value="a-z" {{#if option1}}selected{{/if}}>A -> Z</option>
+        <option value="z-a" {{#if option2}}selected{{/if}}>Z -> A</option>
+        <option value="category" {{#if option3}}selected{{/if}}>類別</option>
+        <option value="location" {{#if option4}}selected{{/if}}>地區</option>
       </select>
     </form>
   </div>
@@ -67,3 +66,10 @@
   </div>
 </div>
 </div>
+
+<script>
+  function getSelectValue() {
+    const selectedValue = document.querySelector('#sort').value
+    console.log(selectedValue)
+  }
+</script>
