@@ -22,20 +22,18 @@
    `git clone https://github.com/AlanSquid/restaurant-list.git`
 3. 在專案資料夾內安裝npm套件 : 
    `npm install `
-4. 環境變數設置:
-   `mongoose.connect(process.env.MONGODB_RESTAURANT_URI)`
-5. 執行:
+4. 執行:
   `npm run start`
-6. 執行成功終端會顯示: Express is listening on http://localhost:3000 
-7. 欲結束執行可在終端輸入`ctrl + C`
+5. 執行成功終端會顯示: Express is listening on http://localhost:3000 
+6. 欲結束執行可在終端輸入`ctrl + C`
 
 ## 開發工具
 - Node.js v16.17.0
-- Express 4.16.4
-- express-handlebars 3.0.0
+- Express 4.18.2
+- express-handlebars 6.0.6
 - Bootstrap 5.2
 - method-override ^3.0.0
-- mongoose ^6.6.5
+- mongoose ^6.6.7
 
   
 

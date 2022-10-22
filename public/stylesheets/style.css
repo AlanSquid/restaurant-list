@@ -25,7 +25,7 @@ header {
   margin: 0 auto;
   max-width: 680px;
   background-color: #fce2cf;
-  border-radius: 50px;
+  border-radius: 20px;
   padding: 20px 30px;
   border: 0;
   margin-top: -60px;
@@ -37,11 +37,12 @@ header {
 }
 
 .change-sort-outer {
-  padding-right: 140px;
+  padding-right: 260px;
 }
 
 .sort {
-  width: 100px;
+  width: 120px;
+  text-align: center;
 }
 
 .form-group {
