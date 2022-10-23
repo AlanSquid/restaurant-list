@@ -1,6 +1,7 @@
 const express = require('express')
 const exphbs = require('express-handlebars')
 const methodOverride = require('method-override')
+const session = require('express-session')
 const port = 3000
 
 const routes = require('./routes')
@@ -17,6 +18,11 @@ app.use(express.static('public'))
 
 app.use(express.urlencoded({ extended: true }))
 app.use(methodOverride('_method'))
+app.use(session({
+  secret: 'mySecret',
+  resave: false,
+  saveUninitialized: true
+}))
 
 app.use(routes)
 
