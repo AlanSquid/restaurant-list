@@ -42,8 +42,8 @@ header {
 
 .login-bar .login-bar-outer,
 .register-bar .register-bar-outer {
-  margin-top: -200px;
-  max-width: 600px;
+  margin-top: -320px;
+  max-width: 500px;
 }
 
 .search-bar .search-bar-inner h4 {
@@ -71,12 +71,13 @@ header {
   font-size: 1.2em;
 }
 
-.login-btn:hover {
+.login-btn:hover,
+.register-btn:hover {
   background: #9b4b4b;
 }
 
 .change-sort-outer {
-  padding-right: 260px;
+  padding-right: 100px;
 }
 
 .sort {

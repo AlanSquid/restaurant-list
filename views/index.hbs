@@ -14,24 +14,25 @@
       </form>
     </div>
   </div>
-</div>
-{{#if home}}
-<div class="change-sort-outer d-flex justify-content-end">
-  <div class="change-sort">
-    <form action="/">
-      <div class="sort-form-group d-flex flex-column">
-        <label for="sort">排序：</label>
-        <select class="sort" name="sort" id="sort" onchange="this.form.submit()">
-          <option value="a-z" {{#if option1}}selected{{/if}}>A -> Z</option>
-          <option value="z-a" {{#if option2}}selected{{/if}}>Z -> A</option>
-          <option value="category" {{#if option3}}selected{{/if}}>類別</option>
-          <option value="location" {{#if option4}}selected{{/if}}>地區</option>
-        </select>
-      </div>
-    </form>
+  {{#if home}}
+  <div class="change-sort-outer d-flex justify-content-end">
+    <div class="change-sort">
+      <form action="/">
+        <div class="sort-form-group d-flex flex-column">
+          <label for="sort">排序：</label>
+          <select class="sort" name="sort" id="sort" onchange="this.form.submit()">
+            <option value="a-z" {{#if option1}}selected{{/if}}>A -> Z</option>
+            <option value="z-a" {{#if option2}}selected{{/if}}>Z -> A</option>
+            <option value="category" {{#if option3}}selected{{/if}}>類別</option>
+            <option value="location" {{#if option4}}selected{{/if}}>地區</option>
+          </select>
+        </div>
+      </form>
+    </div>
   </div>
+  {{/if}}
 </div>
-{{/if}}
+
 
 <!-- restaurant list -->
 <div class="container mt-5">
