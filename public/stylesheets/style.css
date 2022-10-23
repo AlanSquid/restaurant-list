@@ -1,3 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Noto+Sans+TC:wght@400;500;700&family=Raleway:wght@400;700&display=swap');
+
+body {
+  font-family: 'Lato', 'Noto+Sans+TC', sans-serif;
+}
+
 header {
   overflow: hidden;
 }
@@ -21,7 +27,9 @@ header {
 }
 
 
-.search-bar .search-bar-outer {
+.search-bar .search-bar-outer,
+.login-bar .login-bar-outer,
+.register-bar .register-bar-outer {
   margin: 0 auto;
   max-width: 680px;
   background-color: #fce2cf;
@@ -32,8 +40,39 @@ header {
   box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
 }
 
+.login-bar .login-bar-outer,
+.register-bar .register-bar-outer {
+  margin-top: -200px;
+  max-width: 600px;
+}
+
 .search-bar .search-bar-inner h4 {
   color: #9b4b4b;
+}
+
+.login-bar .login-bar-inner h4,
+.register-bar .register-bar-inner h4 {
+  color: #9b4b4b;
+  text-align: center;
+  font-size: 2.5em;
+}
+
+.login-input-group input,
+.register-input-group input {
+  width: 400px;
+  padding-left: 5px;
+}
+
+.login-form,
+.register-form,
+.login-bar-inner .lead {
+  width: 400px;
+  margin: 0 auto;
+  font-size: 1.2em;
+}
+
+.login-btn:hover {
+  background: #9b4b4b;
 }
 
 .change-sort-outer {

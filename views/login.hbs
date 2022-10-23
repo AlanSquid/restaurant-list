@@ -1,0 +1,24 @@
+<div class="container login-bar">
+  <div class="login-bar-outer">
+    <div class="login-bar-inner">
+      <form action="/users/login" method="POST">
+        <h4 class="mb-2">Login</h4>
+        <div class="login-form">
+          <div class="login-input-group d-flex flex-column mb-3">
+            <label for="email" class="mb-1">電子信箱:</label>
+            <input type="text" placeholder="Email" name="email" id="email">
+          </div>
+          <div class="login-input-group d-flex flex-column mb-3">
+            <label for="password" class="mb-1">密碼:</label>
+            <input type="password" placeholder="Password" name="password" id="password">
+          </div>
+          <button type="submit" class="login-btn btn btn-major">Login</button>
+          <a href="/auth/facebook" class="btn btn-info btn-block">Facebook Login</a>
+        </div>
+      </form>
+      <p class="lead mt-4">
+        新使用者請先註冊 <a href="/users/register">Register</a>
+      </p>
+    </div>
+  </div>
+</div>
