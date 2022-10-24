@@ -27,6 +27,13 @@ app.use(session({
 
 usePassport(app)
 
+// middleware: 判斷登入、登出狀態(有驗證、未驗證)
+// app.use((req, res) => {
+//   res.locals.isAuthenticated = req.isAuthenticated()
+//   res.locals.user = req.user
+//   next()
+// })
+
 app.use(routes)
 
 // start and listen on the Express server

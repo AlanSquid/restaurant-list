@@ -5,8 +5,12 @@ const home = require('./modules/home')
 const restaurants = require('./modules/restaurants')
 const users = require('./modules/users')
 
-router.use('/', home)
-router.use('/restaurants', restaurants)
+const { authenticator } = require('../middleware/auth')
+
+// 要驗證才能使用的，需加入middleware設定好的authenticator
+// 注意排放順序，不嚴謹的、不用驗證的放最上面
 router.use('/users', users)
+router.use('/restaurants', authenticator, restaurants)
+router.use('/', authenticator, home)
 
 module.exports = router
