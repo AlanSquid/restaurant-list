@@ -28,11 +28,14 @@ app.use(session({
 usePassport(app)
 
 // middleware: 判斷登入、登出狀態(有驗證、未驗證)
-// app.use((req, res) => {
-//   res.locals.isAuthenticated = req.isAuthenticated()
-//   res.locals.user = req.user
-//   next()
-// })
+app.use((req, res, next) => {
+  res.locals.isAuthenticated = req.isAuthenticated()
+  res.locals.user = req.user
+  // req.isAuthenticated()是passport提供的函式
+  // req.user是passport反序列化取出來的user物件
+  // res.locals是express提供的，可以給模板使用
+  next()
+})
 
 app.use(routes)
 
