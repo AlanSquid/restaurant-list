@@ -51,8 +51,12 @@
             </div>
 
             <span class="badge rounded-pill text-bg-danger font-weight-normal">
+              {{#if rating}}
               {{this.rating}}
               <i class="fas fa-star fa-xs"></i>
+              {{else}}
+              未評分
+              {{/if}}
             </span>
 
           </div>

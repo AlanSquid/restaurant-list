@@ -17,7 +17,12 @@ router.get('/register', (req, res) => {
 })
 
 router.post('/register', (req, res) => {
-  const { name, email, password, confirmPassword } = req.body
+  const { email, password, confirmPassword } = req.body
+  // 如過使用者未輸入名字，則代入'未命名'
+  let name = req.body.name
+  if (!name) {
+    name = '未命名'
+  }
   User.findOne({ email }).then(user => {
     if (user) {
       console.log('此信箱已註冊過')
@@ -28,7 +33,7 @@ router.post('/register', (req, res) => {
         confirmPassword
       })
     }
-    return User.create({
+    User.create({
       name,
       email,
       password

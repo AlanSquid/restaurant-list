@@ -4,10 +4,11 @@ const sortSelector = require('../../utility/sortSelector')
 const Restaurant = require('../../models/restaurant')
 
 router.get('/', (req, res) => {
+  const userId = req.user._id
   const sort = req.query.sort
 
   const home = true
-  Restaurant.find({})
+  Restaurant.find({ userId })
     .lean()
     .sort(sortSelector(sort))
     .then(restaurants => res.render('index', {

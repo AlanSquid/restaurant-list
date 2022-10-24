@@ -1,54 +1,77 @@
 const express = require('express')
 const router = express.Router()
-
 const Restaurant = require('../../models/restaurant')
-const defaultImage = 'https://cdn.w600.comps.canstockphoto.com.tw/%E9%A3%9F%E7%89%A9-%E9%9B%86%E5%90%88-%E5%9C%96%E8%B1%A1-%E5%9C%96%E7%A4%BA_csp5949819.jpg'
+const defaultImage = 'https://media.istockphoto.com/vectors/restaurant-icons-vector-id1166105457?s=612x612'
 
+// render new頁面
 router.get('/new', (req, res) => {
   res.render('new')
 })
 
+// 新增資料
 router.post('/', (req, res) => {
-  // 無放圖片則顯示預設圖
-  if (!req.body.image) {
-    req.body.image = defaultImage
+  const userId = req.user._id
+  const { name, name_en, category, location, phone, google_map, rating, description } = req.body
+  let image = req.body.image
+  if (!image) {
+    image = defaultImage
   }
-  Restaurant.create(req.body)
+
+  Restaurant.create({
+    name,
+    name_en,
+    category,
+    location,
+    image,
+    phone,
+    google_map,
+    rating,
+    description,
+    userId
+  })
     .then(() => res.redirect('/'))
     .catch(error => console.error(error))
 })
 
+// render detail頁面
 router.get('/:id', (req, res) => {
-  const id = req.params.id
-  Restaurant.findById(id)
+  const userId = req.user._id
+  const _id = req.params.id
+  Restaurant.findOne({ _id, userId })
     .lean()
-    .then(restaurant => res.render('show', { restaurant }))
+    .then(restaurant => res.render('detail', { restaurant }))
     .catch(error => console.error(error))
 })
 
-
+// render edit頁面
 router.get('/:id/edit', (req, res) => {
-  const id = req.params.id
-  Restaurant.findById(id)
+  const userId = req.user._id
+  const _id = req.params.id
+  Restaurant.findOne({ _id, userId })
     .lean()
     .then(restaurant => res.render('edit', { restaurant }))
     .catch(error => console.error(error))
 })
 
+// 修改detail 
 router.put('/:id', (req, res) => {
-  const id = req.params.id
+  const userId = req.user._id
+  const _id = req.params.id
+
   // 無放圖片則顯示預設圖
   if (!req.body.image) {
     req.body.image = defaultImage
   }
-  Restaurant.findByIdAndUpdate(id, req.body)
+
+  Restaurant.findByIdAndUpdate({ _id, userId }, req.body)
     .then(() => res.redirect('/'))
     .catch(error => console.error(error))
 })
 
 router.delete('/:id', (req, res) => {
-  const id = req.params.id
-  Restaurant.findByIdAndDelete(id)
+  const userId = req.user._id
+  const _id = req.params.id
+  Restaurant.findByIdAndDelete({ _id, userId })
     .then(() => res.redirect('/'))
     .catch(error => console.error(error))
 })
