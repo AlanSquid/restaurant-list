@@ -30,6 +30,11 @@ router.post('/register', (req, res) => {
     errors.push({ message: '必填欄位不可空白！' })
   }
 
+  // 密碼長度至少4碼
+  if (password.length < 4) {
+    errors.push({ message: '密碼長度至少4碼！' })
+  }
+
   // 密碼與確認密碼不符
   if (password !== confirmPassword) {
     errors.push({ message: '密碼與確認密碼不相符！' })
