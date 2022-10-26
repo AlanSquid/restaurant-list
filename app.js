@@ -3,6 +3,7 @@ const exphbs = require('express-handlebars')
 const methodOverride = require('method-override')
 const session = require('express-session')
 const usePassport = require('./config/passport')
+const flash = require('connect-flash')
 const port = 3000
 
 const routes = require('./routes')
@@ -19,6 +20,7 @@ app.use(express.static('public'))
 
 app.use(express.urlencoded({ extended: true }))
 app.use(methodOverride('_method'))
+
 app.use(session({
   secret: 'mySecret',
   resave: false,
@@ -27,6 +29,8 @@ app.use(session({
 
 usePassport(app)
 
+app.use(flash())
+
 // middleware: 判斷登入、登出狀態(有驗證、未驗證)
 app.use((req, res, next) => {
   res.locals.isAuthenticated = req.isAuthenticated()
@@ -34,6 +38,10 @@ app.use((req, res, next) => {
   // req.isAuthenticated()是passport提供的函式
   // req.user是passport反序列化取出來的user物件
   // res.locals是express提供的，可以給模板使用
+
+  res.locals.success_msg = req.flash('success_msg')
+  res.locals.warning_msg = req.flash('warning_msg')
+  res.locals.error = req.flash('error')
   next()
 })
 

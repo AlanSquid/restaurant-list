@@ -1,8 +1,9 @@
 <div class="container login-bar">
   <div class="login-bar-outer">
     <div class="login-bar-inner">
+      <h4 class="mb-2">Login</h4>
+      {{> message}}
       <form action="/users/login" method="POST">
-        <h4 class="mb-2">Login</h4>
         <div class="login-form">
           <div class="login-input-group d-flex flex-column mb-3">
             <label for="email" class="mb-1">電子信箱:</label>

@@ -81,6 +81,11 @@ header {
   background: #9b4b4b;
 }
 
+.tip {
+  font-size: 0.8em;
+  text-align: center;
+}
+
 .change-sort-outer {
   padding-right: 100px;
 }
