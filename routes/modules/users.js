@@ -11,7 +11,7 @@ router.get('/login', (req, res) => {
 router.post('/login', passport.authenticate('local', {
   successRedirect: "/",
   failureRedirect: '/users/login',
-  // if(!username || password)的情況下預設會回傳Missing credentials，以下更改
+  // if(!username || !password)的情況下預設會回傳Missing credentials，以下更改
   badRequestMessage: '帳號密碼不能為空白',
   failureFlash: true
 }))
@@ -53,33 +53,31 @@ router.post('/register', (req, res) => {
         password,
         confirmPassword
       })
-        .catch(err => console.log(err))
     }
 
-    // 如過使用者未輸入名字，則代入'未命名'
+    // 如過使用者未輸入名字，則代入'我'
     if (!name) {
-      name = '未命名'
+      name = '我'
     }
 
-    User.create({
-      name,
-      email,
-      password
-    })
+    return bcrypt
+      .genSalt(10)
+      .then(salt => bcrypt.hash(password, salt))
+      .then(hash => User.create({
+        name,
+        email,
+        password: hash
+      }))
+      .then(() => res.redirect('/'))
+      .catch(err => console.log(err))
   })
-    // .then(() => res.redirect('/'))
-    .then(() => {
-      res.locals.isAuthenticated = true
-      res.redirect('/')
-    })
-    .catch(err => console.log(err))
 })
 
 router.get('/logout', (req, res, next) => {
   req.logout(err => {
     if (err) { return next(err) }
     req.flash('success_msg', '您已成功登出。')
-    res.redirect('login')
+    res.redirect('/users/login')
   })
 })
 
