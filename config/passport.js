@@ -13,13 +13,6 @@ module.exports = app => {
     passReqToCallback: true,
   },
     (req, email, password, done) => {
-      // 這段在passport的authenticate裡已經幫我們驗證了username、password
-      // !username || !password會直接return 錯誤訊息'Missing credentials'
-      // 也就不會跑下面的
-      // if (this.fail === 'Missing credentials') {
-      //   return done(null, false, { message: '帳號密碼不能空白！' })
-      // }
-
       User.findOne({ email }).then(user => {
         if (!user) {
           return done(null, false, { message: '此信箱尚未註冊過！' })

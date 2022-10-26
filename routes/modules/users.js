@@ -2,6 +2,7 @@ const express = require('express')
 const router = express.Router()
 const User = require('../../models/user')
 const passport = require('passport')
+const bcrypt = require('bcryptjs')
 
 router.get('/login', (req, res) => {
   res.render('login')
@@ -10,6 +11,8 @@ router.get('/login', (req, res) => {
 router.post('/login', passport.authenticate('local', {
   successRedirect: "/",
   failureRedirect: '/users/login',
+  // if(!username || password)的情況下預設會回傳Missing credentials，以下更改
+  badRequestMessage: '帳號密碼不能為空白',
   failureFlash: true
 }))
 
