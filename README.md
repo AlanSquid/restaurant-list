@@ -45,8 +45,8 @@
 
 7. 建立種子資料請在終端輸入: `npm run seed` 
    帳密:
-   user1@example.com, 12345678
-   user2@example.com, 12345678
+   - user1@example.com, 12345678
+   - user2@example.com, 12345678
 
 8. 欲結束執行可在終端輸入`ctrl + C`
 
