@@ -13,8 +13,21 @@
             <label for="password" class="mb-1">密碼:</label>
             <input type="password" placeholder="Password" name="password" id="password">
           </div>
-          <button type="submit" class="login-btn btn btn-major">Login</button>
-          <a href="/auth/facebook" class="btn btn-info btn-block">Facebook Login</a>
+          <div class="login-btn-group d-flex flex-column align-items-center">
+            <div class="third-party">
+              <a href="/auth/facebook" class="btn">
+                <i class="fb-btn fa-brands fa-square-facebook fa-lg"></i>
+              </a>
+              <a href="/auth/google" class="btn">
+                <i class="g-btn fa-brands fa-square-google-plus fa-lg"></i>
+              </a>
+            </div>
+
+            <button type="submit" class="login-btn btn btn-major">Login</button>
+          </div>
+
+
+
         </div>
       </form>
       <p class="lead mt-4">

@@ -76,6 +76,32 @@ header {
   font-size: 1.2em;
 }
 
+.g-btn,
+.fb-btn {
+  font-size: 2em;
+
+}
+
+.fb-btn {
+  color: #385898;
+}
+
+.fb-btn:hover {
+  color: #3578E5;
+}
+
+.g-btn {
+  color: #dd4b39;
+}
+
+.g-btn:hover {
+  color: #FF7866;
+}
+
+.login-btn {
+  width: 100px;
+}
+
 .login-btn:hover,
 .register-btn:hover {
   background: #9b4b4b;
