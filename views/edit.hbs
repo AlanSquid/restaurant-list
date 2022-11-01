@@ -5,20 +5,19 @@
 
       <div class="form-group">
         <label for="name">餐廳名稱 :</label>
-        <input type="text" placeholder="請輸入餐廳名稱 ..." id="name" name="name" value="{{restaurant.name}}"
-          style="border: none;" required>
+        <input type="text" placeholder="請輸入餐廳名稱 ..." id="name" name="name" value="{{restaurant.name}}" required>
       </div>
 
       <div class="form-group">
         <label for="name_en">英文名 :</label>
-        <input type="text" placeholder="請輸入餐廳英文名 ..." id="name_en" name="name_en" value="{{restaurant.name_en}}"
-          style="border: none;">
+        <input type="text" placeholder="請輸入餐廳英文名 ..." id="name_en" name="name_en" maxlength="30"
+          value="{{restaurant.name_en}}">
       </div>
 
       <div class="form-group">
         <label for="category">類別 :</label>
         <input list="categories" id="category" name="category" placeholder="請輸入餐廳類別 ..." value="{{restaurant.category}}"
-          style="border: none;" required>
+          required>
         <datalist id="categories">
           <option>美式餐廳</option>
           <option>義式餐廳</option>
@@ -31,37 +30,35 @@
 
       <div class="form-group">
         <label for="image">圖檔連結 :</label>
-        <input type="url" id="image" name="image" value="{{restaurant.image}}" style="border: none; width: 600px;">
+        <input type="url" id="image" name="image" value="{{restaurant.image}}" style="width: 600px;">
       </div>
 
       <div class="form-group">
         <label for="location">地址 :</label>
         <input type="text" placeholder="請輸入餐廳地址 ..." id="location" name="location" value="{{restaurant.location}}"
-          style="border: none; width: 500px;" required>
+          style="width: 500px;" required>
       </div>
 
       <div class="form-group">
         <label for="phone">電話 :</label>
-        <input type="tel" placeholder="請輸入餐廳電話 ..." id="phone" name="phone" value="{{restaurant.phone}}"
-          style="border: none;">
+        <input type="tel" placeholder="請輸入餐廳電話 ..." id="phone" name="phone" maxlength="10" value="{{restaurant.phone}}">
       </div>
 
       <div class=" form-group">
         <label for="google-map">Google Map連結 :</label>
-        <input type="url" id="google-map" name="google-map" value="{{restaurant.google_map}}"
-          style="border: none; width: 600px;">
+        <input type="url" id="google-map" name="google-map" value="{{restaurant.google_map}}" style="width: 600px;">
       </div>
 
       <div class="form-group">
         <label for="rating">評分 :</label>
         <input type="number" step="0.1" min="0" max="5" placeholder="0 ~ 5" id="rating" name="rating"
-          value="{{restaurant.rating}}" style="border: none;">
+          value="{{restaurant.rating}}">
       </div>
 
       <div class="form-group d-flex flex-column">
         <label for="description">簡介 :</label>
-        <textarea name="description" id="description" placeholder="餐廳簡介 ..." cols="50"
-          rows="3">{{restaurant.description}}</textarea>
+        <textarea name="description" id="description" placeholder="餐廳簡介 (200字內)" cols="50" rows="4"
+          maxlength="200">{{restaurant.description}}</textarea>
       </div>
 
       <button type="submit" class="btn btn-primary">Save</button>

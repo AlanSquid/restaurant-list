@@ -6,6 +6,7 @@ if (process.env.NODE_ENV !== 'production') {
 const Restaurant = require('../restaurant')
 const User = require('../user')
 const db = require('../../config/mongoose')
+const { Promise } = require('mongoose')
 const restaurantList = require('../../restaurant.json').results
 
 const SEED_USER1 = {
@@ -41,13 +42,16 @@ db.once('open', () => {
         }
         return Promise.all([Restaurant.create(restaurantList.slice(i * 3, ((i + 1) * 3)))])
       })
+      .then(() => {
+        console.log('done!')
+        process.exit()
+      })
   }
-
-  setTimeout(() => {
-    console.log('done!')
-    process.exit()
-  }, 500)
 })
+
+
+
+
 
 
 

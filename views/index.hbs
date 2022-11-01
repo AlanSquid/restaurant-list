@@ -66,7 +66,7 @@
         <a class="me-4" href="/restaurants/{{this._id}}/edit">Edit</a>
         <a class="me-4" href="/restaurants/{{this._id}}">Detail</a>
         <form action="/restaurants/{{this._id}}?_method=DELETE" method="POST">
-          <button type="submit" class="btn btn-danger btn-sm">Delete</button>
+          <button type="submit" class="btn btn-danger btn-sm" onclick="confirm('刪除後無法找回，請問確定要刪除項目嗎?')">Delete</button>
         </form>
       </div>
     </div>

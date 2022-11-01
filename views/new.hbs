@@ -4,17 +4,17 @@
     <form action="/restaurants" method="POST">
       <div class="form-group">
         <label for="name"><span style="color:red;">*</span>餐廳名稱 :</label>
-        <input type="text" placeholder="請輸入餐廳名稱 ..." id="name" name="name" style="border: none;" required>
+        <input type="text" placeholder="請輸入餐廳名稱 ..." id="name" name="name" required>
       </div>
 
       <div class="form-group">
         <label for="name_en">英文名 :</label>
-        <input type="text" placeholder="請輸入餐廳英文名 ..." id="name_en" name="name_en" style="border: none;">
+        <input type="text" placeholder="請輸入餐廳英文名 ..." id="name_en" name="name_en" maxlength="30">
       </div>
 
       <div class="form-group">
         <label for="category"><span style="color:red;">*</span>類別 :</label>
-        <input list="categories" id="category" name="category" placeholder="請輸入餐廳類別 ..." style="border: none;" required>
+        <input list="categories" id="category" name="category" placeholder="請輸入餐廳類別 ..." required>
         <datalist id="categories">
           <option>美式餐廳</option>
           <option>義式餐廳</option>
@@ -27,34 +27,33 @@
 
       <div class="form-group">
         <label for="image">圖檔連結 :</label>
-        <input type="url" placeholder="http//:" id="image" name="image" style="border: none; width: 600px;">
+        <input type="url" placeholder="http//:" id="image" name="image" style="width: 600px;">
       </div>
 
       <div class="form-group">
         <label for="location"><span style="color:red;">*</span>地址 :</label>
-        <input type="text" placeholder="請輸入餐廳地址 ..." id="location" name="location" style="border: none; width: 500px;"
-          required>
+        <input type="text" placeholder="請輸入餐廳地址 ..." id="location" name="location" style="width: 500px;" required>
       </div>
 
       <div class="form-group">
         <label for="phone">電話 :</label>
-        <input type="tel" placeholder="請輸入餐廳電話 ..." id="phone" name="phone" style="border: none;">
+        <input type="tel" placeholder="請輸入餐廳電話 ..." id="phone" name="phone" maxlength="10">
       </div>
 
       <div class="form-group">
         <label for="google-map">Google Map連結 :</label>
-        <input type="url" id="google-map" name="google-map" style="border: none; width: 600px;">
+        <input type="url" id="google-map" name="google-map" style="width: 600px;">
       </div>
 
       <div class="form-group">
         <label for="rating">評分 :</label>
-        <input type="number" step="0.1" min="0" max="5" placeholder="0 ~ 5" id="rating" name="rating"
-          style="border: none;">
+        <input type="number" step="0.1" min="0" max="5" placeholder="0 ~ 5" id="rating" name="rating">
       </div>
 
       <div class="form-group d-flex flex-column">
         <label for="description" class="mb-2">簡介 :</label>
-        <textarea name="description" id="description" placeholder="餐廳簡介 ..." cols="50" rows="3"></textarea>
+        <textarea name="description" id="description" placeholder="餐廳簡介 (200字內)" cols="50" rows="4"
+          maxlength="200"></textarea>
       </div>
 
       <p class="tip">(<span class="require-mark" style="color: red;">*</span>為必填欄位)</p>
